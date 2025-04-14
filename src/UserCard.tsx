@@ -1,4 +1,5 @@
- import React from "react";
+ import React, { useState } from "react";
+import { Button } from "./Button";
 
 type UserCardProps = {
   name: string;
@@ -12,11 +13,19 @@ type UserCardProps = {
  * @returns 
  */
 
- export const UserCard: React.FC<UserCardProps> = ({ name, email }) => {
+export const UserCard: React.FC<UserCardProps> = ({ name, email }) => {
+    const [isConfirmed, setIsConfirmed] = useState(false);
+    
+    const handleConfirm = () => {
+        setIsConfirmed(true);
+    };
+    
     return (
-        <div style={{border: '1px solid #ccc', padding: '1rem'}}>
+        <div >
             <h3>{name}</h3>
             <p>{email}</p>
+            <Button label="Confirm" onClick={handleConfirm} variant="secondary" />
+            {isConfirmed && <p>User Confirmed</p>}
         </div>
     );
 };
