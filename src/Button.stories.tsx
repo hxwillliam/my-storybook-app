@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
 import { useState } from "react";
+import { within } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -46,3 +48,15 @@ const SecondaryButton = () => {
 export const Secondary: Story = {
   render: () => <SecondaryButton />
 };
+
+export const WithInteraction: Story = {
+  args: {
+    label: "Click me",
+    onClick: () => alert("Clicked")
+  },
+  play: async ({canvasElement}) => {
+      const canvas = within(canvasElement);
+      const button = canvas.getByRole('button');
+      await userEvent.click(button);
+  }
+}

@@ -5,6 +5,13 @@ type UserCardProps = {
   email: string;
 };
 
+/**
+ * UserCard component
+ * @param name - The name of the user
+ * @param email - The email of the user
+ * @returns 
+ */
+
  export const UserCard: React.FC<UserCardProps> = ({ name, email }) => {
     return (
         <div style={{border: '1px solid #ccc', padding: '1rem'}}>

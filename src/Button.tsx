@@ -7,6 +7,16 @@ type ButtonProps = {
     variant?: 'primary' | 'secondary';
 };
 
+
+/**
+ * Button component
+ * @param label - The label of the button
+ * @param onClick - The function to be called when the button is clicked
+ * @param disabled - Whether the button is disabled
+ * @param variant - The styl variant of the button   
+ * @returns 
+ */
+
 export const Button: React.FC<ButtonProps> = ({ 
     label, 
     onClick, 
